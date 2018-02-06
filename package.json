@@ -1,33 +1,33 @@
 {
-	"name": "validate-insz",
-	"version": "1.0.0",
-	"description": "Validate Belgian INSZ numbers",
-	"license": "MIT",
-	"repository": "SimonJang/validate-insz",
-	"author": {
-		"name": "Simon Jang",
-		"email": "simon.jang.contact@gmail.com",
-		"url": "github.com/SimonJang"
-	},
-	"engines": {
-		"node": ">=0.10"
-	},
-	"scripts": {
-		"test": "xo && nyc ava",
-		"hint": "clinton"
-	},
-	"files": [
-		"index.js"
-	],
-	"keywords": [
-		"validator",
-		"Belgium",
-		"insz"
-	],
-	"devDependencies": {
-		"ava": "0.17.0",
-		"clinton": "^0.13.0",
-		"nyc": "^10.0.0",
-		"xo": "0.16.0"
-	}
+  "name": "validate-insz",
+  "version": "1.0.1",
+  "description": "Validate Belgian INSZ numbers",
+  "license": "MIT",
+  "repository": "SimonJang/validate-insz",
+  "author": {
+    "name": "Simon Jang",
+    "email": "simon.jang.contact@gmail.com",
+    "url": "github.com/SimonJang"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "xo && nyc ava",
+    "hint": "clinton"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "validator",
+    "Belgium",
+    "insz"
+  ],
+  "devDependencies": {
+    "ava": "0.17.0",
+    "clinton": "^0.13.0",
+    "nyc": "^10.0.0",
+    "xo": "0.16.0"
+  }
 }
