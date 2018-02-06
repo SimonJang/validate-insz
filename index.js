@@ -23,7 +23,7 @@ module.exports = function (insz) {
 	}
 
 	if (!regex.test(insz) && !altRegex.test(insz)) {
-		throw new TypeError('Provided INSZ number is invalid');
+		return false;
 	}
 
 	var cleanedSSN = clean(insz);

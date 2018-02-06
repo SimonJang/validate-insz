@@ -7,14 +7,14 @@ test('should throw error when INSZ is invalid type', t => {
 });
 
 test('should throw error when Provided INSZ number is invalid is provided', t => {
-	t.throws(() => m('foobar'), 'Provided INSZ number is invalid');
-	t.throws(() => m('213123213123123'), 'Provided INSZ number is invalid');
-	t.throws(() => m('7805.20-101.02'), 'Provided INSZ number is invalid');
-	t.throws(() => m('78.05.20101.02'), 'Provided INSZ number is invalid');
-	t.throws(() => m('78.05.20 101.02'), 'Provided INSZ number is invalid');
-	t.throws(() => m('78.05.2010102'), 'Provided INSZ number is invalid');
-	t.throws(() => m('ab78.05.20-101.02'), 'Provided INSZ number is invalid');
-	t.throws(() => m('78.05.20-101.02cd'), 'Provided INSZ number is invalid');
+	t.false(m('foobar'), 'Provided INSZ number is invalid');
+	t.false(m('213123213123123'), 'Provided INSZ number is invalid');
+	t.false(m('7805.20-101.02'), 'Provided INSZ number is invalid');
+	t.false(m('78.05.20101.02'), 'Provided INSZ number is invalid');
+	t.false(m('78.05.20 101.02'), 'Provided INSZ number is invalid');
+	t.false(m('78.05.2010102'), 'Provided INSZ number is invalid');
+	t.false(m('ab78.05.20-101.02'), 'Provided INSZ number is invalid');
+	t.false(m('78.05.20-101.02cd'), 'Provided INSZ number is invalid');
 });
 
 test('should return true since valid ISNZ is provided', t => {
