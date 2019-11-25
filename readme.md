@@ -18,7 +18,13 @@ const validateInsz = require('validate-insz');
 validateInsz('78.05.20-101.02');
 //=> true
 
+validateInsz('78052010102');
+//=> true
+
 validateInsz('78.05.20-101.99');
+//=> false
+
+validateInsz('78052010199');
 //=> false
 ```
 
@@ -31,7 +37,7 @@ validateInsz('78.05.20-101.99');
 
 Type: `string`
 
-INSZ number to be validated.
+INSZ number to be validated. This can be formatted or just the sequence of numbers.
 
 
 ## License
