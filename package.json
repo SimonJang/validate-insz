@@ -25,9 +25,10 @@
     "insz"
   ],
   "devDependencies": {
-    "ava": "^2.4.0",
-    "clinton": "^0.14.0",
-    "nyc": "^14.1.1",
+    "ava": "^0.17.0",
+    "clinton": "^0.13.0",
+    "nyc": "^10.3.2",
     "xo": "0.16.0"
-  }
+  },
+  "dependencies": {}
 }
