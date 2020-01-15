@@ -10,11 +10,10 @@
     "url": "github.com/SimonJang"
   },
   "engines": {
-    "node": ">=0.10"
+    "node": ">=4"
   },
   "scripts": {
-    "test": "xo && nyc ava",
-    "hint": "clinton"
+    "test": "ava"
   },
   "files": [
     "index.js"
@@ -25,10 +24,7 @@
     "insz"
   ],
   "devDependencies": {
-    "ava": "^0.17.0",
-    "clinton": "^0.13.0",
-    "nyc": "^10.3.2",
-    "xo": "0.16.0"
+    "ava": "^0.17.0"
   },
   "dependencies": {}
 }
