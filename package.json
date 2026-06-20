@@ -2,18 +2,21 @@
   "name": "validate-insz",
   "version": "1.0.4",
   "description": "Validate Belgian INSZ numbers",
+  "main": "index.js",
+  "exports": "./index.js",
   "license": "MIT",
   "repository": "SimonJang/validate-insz",
+  "packageManager": "npm@11.11.0",
   "author": {
     "name": "Simon Jang",
     "email": "simon.jang.contact@gmail.com",
     "url": "github.com/SimonJang"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=22"
   },
   "scripts": {
-    "test": "ava"
+    "test": "node --test"
   },
   "files": [
     "index.js"
@@ -22,9 +25,5 @@
     "validator",
     "Belgium",
     "insz"
-  ],
-  "devDependencies": {
-    "ava": "^0.17.0"
-  },
-  "dependencies": {}
+  ]
 }
