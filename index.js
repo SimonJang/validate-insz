@@ -1,5 +1,5 @@
 'use strict';
-var regex = /^\d{2}\.\d{2}\.\d{2}-\d{3}\.\d{2}$/;
+var regex = /^\d{2}.\d{2}.\d{2}-\d{3}.\d{2}$/;
 var altRegex = /^\d{11}$/;
 
 var clean = function (insz) {

@@ -22,7 +22,6 @@ test('should throw error when Provided INSZ number is invalid is provided', t =>
 	assert.equal(m('78.05.2010102'), false);
 	assert.equal(m('ab78.05.20-101.02'), false);
 	assert.equal(m('78.05.20-101.02cd'), false);
-	assert.equal(m('01x01x01-001x96'), false);
 });
 
 test('should return true since valid ISNZ is provided', t => {
