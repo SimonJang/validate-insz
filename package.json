@@ -4,6 +4,7 @@
   "description": "Validate Belgian INSZ numbers",
   "license": "MIT",
   "repository": "SimonJang/validate-insz",
+  "packageManager": "npm@11.11.0",
   "author": {
     "name": "Simon Jang",
     "email": "simon.jang.contact@gmail.com",
@@ -13,7 +14,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "ava"
+    "test": "node --test"
   },
   "files": [
     "index.js"
@@ -22,9 +23,5 @@
     "validator",
     "Belgium",
     "insz"
-  ],
-  "devDependencies": {
-    "ava": "^0.17.0"
-  },
-  "dependencies": {}
+  ]
 }
