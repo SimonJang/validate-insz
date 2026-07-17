@@ -1,4 +1,4 @@
-# validate-insz [![Build Status](https://travis-ci.org/SimonJang/validate-insz.svg?branch=master)](https://travis-ci.org/SimonJang/validate-insz)
+# validate-insz [![CI](https://github.com/SimonJang/validate-insz/actions/workflows/ci.yml/badge.svg)](https://github.com/SimonJang/validate-insz/actions/workflows/ci.yml)
 
 > Validate Belgian INSZ numbers
 

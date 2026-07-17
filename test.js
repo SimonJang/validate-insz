@@ -24,6 +24,28 @@ test('should throw error when Provided INSZ number is invalid is provided', t =>
 	assert.equal(m('78.05.20-101.02cd'), false);
 });
 
+test('should reject undocumented separators', () => {
+	assert.equal(m('78-05.20-101.02'), false);
+	assert.equal(m('78.05-20-101.02'), false);
+	assert.equal(m('78-05-20-101-02'), false);
+	assert.equal(m('78.05.20-101-02'), false);
+});
+
+test('should reject unassignable National Register sequences', () => {
+	assert.equal(m('78.05.20-000.06'), false);
+	assert.equal(m('78052000006'), false);
+	assert.equal(m('78.05.20-999.74'), false);
+	assert.equal(m('78052099974'), false);
+	assert.equal(m('40.00.00-999.35'), false);
+	assert.equal(m('40000099935'), false);
+});
+
+test('should accept assignable National Register sequence boundaries', () => {
+	assert.equal(m('78.05.20-001.05'), true);
+	assert.equal(m('78052099875'), true);
+	assert.equal(m('40.00.01-001.33'), true);
+});
+
 test('should return true since valid ISNZ is provided', t => {
 	assert.equal(m('78.05.20-101.02', new Date('1978-05-20')), true);
 	assert.equal(m('10.05.20-100.59', new Date('2010-05-20')), true);
