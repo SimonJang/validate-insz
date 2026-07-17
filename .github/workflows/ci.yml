@@ -4,16 +4,38 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     strategy:
       matrix:
         node-version: [22.x, 24.x, 26.x]
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
       - run: npm ci
       - run: npm test
+      - run: npm pack --dry-run
+
+  legacy-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 4.x
+          package-manager-cache: false
+      - name: Smoke-test the declared runtime floor
+        run: node -e "var validate = require('./'); if (!validate('78.05.20-101.02') || validate('78-05-20-101-02')) process.exit(1);"

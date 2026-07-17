@@ -1,5 +1,5 @@
 'use strict';
-var regex = /^\d{2}.\d{2}.\d{2}-\d{3}.\d{2}$/;
+var regex = /^\d{2}\.\d{2}\.\d{2}-\d{3}\.\d{2}$/;
 var altRegex = /^\d{11}$/;
 
 var clean = function (insz) {
@@ -10,6 +10,17 @@ var calculate = function (modulo, checksum) {
 	var rest = parseInt(modulo, 10) % 97;
 
 	return 97 - rest === checksum;
+};
+
+var hasAssignableNationalRegisterSequence = function (insz) {
+	var month = parseInt(insz.slice(2, 4), 10);
+
+	if (month > 12) {
+		return true;
+	}
+
+	var sequence = parseInt(insz.slice(6, 9), 10);
+	return sequence >= 1 && sequence <= 998;
 };
 
 /**
@@ -27,6 +38,9 @@ module.exports = function (insz) {
 	}
 
 	var cleanedSSN = clean(insz);
+	if (!hasAssignableNationalRegisterSequence(cleanedSSN)) {
+		return false;
+	}
 
 	var moduloCheckString = cleanedSSN.slice(0, cleanedSSN.length - 2);
 	var checksum = parseInt(cleanedSSN.slice(cleanedSSN.length - 2), 10);
