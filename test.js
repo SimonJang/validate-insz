@@ -46,6 +46,32 @@ test('should accept assignable National Register sequence boundaries', () => {
 	assert.equal(m('40.00.01-001.33'), true);
 });
 
+test('should apply National Register sequence bounds through December', () => {
+	assert.equal(m('78.12.20-000.55'), false);
+	assert.equal(m('78122000055'), false);
+	assert.equal(m('78.12.20-999.26'), false);
+	assert.equal(m('78122099926'), false);
+	assert.equal(m('78.12.20-001.54'), true);
+	assert.equal(m('78122000154'), true);
+	assert.equal(m('78.12.20-998.27'), true);
+	assert.equal(m('78122099827'), true);
+});
+
+test('should preserve checksum-only validation for encoded months above 12', () => {
+	assert.equal(m('78.13.20-000.62'), true);
+	assert.equal(m('78132000062'), true);
+	assert.equal(m('78.13.20-999.33'), true);
+	assert.equal(m('78132099933'), true);
+	assert.equal(m('78.25.20-000.49'), true);
+	assert.equal(m('78252000049'), true);
+	assert.equal(m('78.25.20-999.20'), true);
+	assert.equal(m('78252099920'), true);
+	assert.equal(m('78.13.20-000.61'), false);
+	assert.equal(m('78132000061'), false);
+	assert.equal(m('78.25.20-999.19'), false);
+	assert.equal(m('78252099919'), false);
+});
+
 test('should return true since valid ISNZ is provided', t => {
 	assert.equal(m('78.05.20-101.02', new Date('1978-05-20')), true);
 	assert.equal(m('10.05.20-100.59', new Date('2010-05-20')), true);
