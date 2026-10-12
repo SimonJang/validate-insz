@@ -12,11 +12,12 @@ var calculate = function (modulo, checksum) {
 	return 97 - rest === checksum;
 };
 
-var hasAssignableNationalRegisterSequence = function (insz) {
+var hasSupportedMonthAndSequence = function (insz) {
 	var month = parseInt(insz.slice(2, 4), 10);
 
 	if (month > 12) {
-		return true;
+		// shortcut: BIS sequence bounds remain unchecked until official allocation limits are confirmed.
+		return (month >= 20 && month <= 32) || (month >= 40 && month <= 52);
 	}
 
 	var sequence = parseInt(insz.slice(6, 9), 10);
@@ -38,7 +39,7 @@ module.exports = function (insz) {
 	}
 
 	var cleanedSSN = clean(insz);
-	if (!hasAssignableNationalRegisterSequence(cleanedSSN)) {
+	if (!hasSupportedMonthAndSequence(cleanedSSN)) {
 		return false;
 	}
 

@@ -38,4 +38,14 @@ jobs:
           node-version: 4.x
           package-manager-cache: false
       - name: Smoke-test the declared runtime floor
-        run: node -e "var validate = require('./'); if (!validate('78.05.20-101.02') || validate('78-05-20-101-02')) process.exit(1);"
+        run: |
+          node <<'JS'
+          var assert = require('assert');
+          var validate = require('./');
+          ['78052010102', '10052010059', '40003200173', '78200010128', '78320110182', '78400010270', '78520110227'].forEach(function (input) {
+            assert.strictEqual(validate(input), true);
+          });
+          ['78-05-20-101-02', '78122000055', '78132000161', '78332010104', '78532010147'].forEach(function (input) {
+            assert.strictEqual(validate(input), false);
+          });
+          JS
