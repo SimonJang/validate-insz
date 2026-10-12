@@ -1,6 +1,6 @@
 {
   "name": "validate-insz",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Validate Belgian INSZ numbers",
   "license": "MIT",
   "repository": {
